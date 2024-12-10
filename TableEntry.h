@@ -4,18 +4,20 @@
 #include <ostream>
 #include <string>
 
+using namespace std;
+
 template <typename V>
 class TableEntry {
     public:
         // Atributos 
-        std::string key;
+        string key;
         V value;
 
         // Constructor 1: Inicializamos clave y valor
-        TableEntry(std::string key, V value) : key(key), value(value) {}
+        TableEntry(string key, V value) : key(key), value(value) {}
 
         // Constructor 2: Inicializamos solamente con clave
-        TableEntry(std::string key) : key(key), value(V()) {}
+        TableEntry(string key) : key(key), value(V()) {}
 
         // Constructor 3: Inicializamos sin clave ni valor
         TableEntry() : key(""), value(V()) {}
@@ -31,7 +33,7 @@ class TableEntry {
         }
 
         // Sobrecargamos el operador <<
-        friend std::ostream &operator<<(std::ostream &out, const TableEntry<V> &te) {
+        friend ostream &operator<<(ostream &out, const TableEntry<V> &te) {
             out << "('" << te.key << "' => " << te.value << ")";
             return out;
         }
